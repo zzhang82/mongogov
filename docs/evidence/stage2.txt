@@ -1,19 +1,19 @@
-2026-11-14T17:58:28Z
+database: mongogov_evidence (a separate database on the same sandbox cluster, so the demo database is not disturbed)
+2026-11-14T21:02:31Z
 seeded 12 training tickets; memories by lifecycle: {'candidate': 0, 'active': 12, 'superseded': 0, 'retired': 0}
 === ACT 1: novel ticket D-1
 TICKET D-1  team=team-support  account=ACC-4114
 Guests get 'link expired' on links I just created
-  resuming s2-act1-a: 10 receipts found, chain verifies
-  [01] recall_memory         top-1 mem-TR-106 cosine 0.4957 evidence 0.85  (replayed from receipt, not re-run)
-  [02] get_account           found=True, plan=Business, region=us-east  (replayed from receipt, not re-run)
-  [03] check_service_status  region=us-east, incident=None  (replayed from receipt, not re-run)
-  [04] fetch_logs            line=share-links WARN policy expiry_days=0 code=link_expiry_policy_zero, cause=link_expiry_policy_zero  (replayed from receipt, not re-run)
-  [05] lookup_catalog        fix_id=F14, title=Restore the share link expiry policy  (replayed from receipt, not re-run)
-  [06] apply_fix             applied=True, fix_id=F14  (replayed from receipt, not re-run)
-  [07] verify_fix            resolved=True  (replayed from receipt, not re-run)
-  [08] ** CANDIDATE ** lifecycle=candidate, review=rev-mem-D-1  (replayed from receipt, not re-run)
-  [09] ** HOLD ** waiting_for=human, reason=confidence below hold line  (replayed from receipt, not re-run)
-  [10] ** FINAL ** status=held, path=catalog, fix_id=F14, confidence=0.5, memory=None, wrong_fixes=[], vetoed=None, candidate=mem-D-1  (replayed from receipt, not re-run)
+  [01] recall_memory         top-1 mem-TR-106 cosine 0.4957 evidence 0.85  (receipt 8afa51f7eb)
+  [02] get_account           found=True, plan=Business, region=us-east  (receipt 3802e0e7a8)
+  [03] check_service_status  region=us-east, incident=None  (receipt 43643fd8a3)
+  [04] fetch_logs            line=share-links WARN policy expiry_days=0 code=link_expiry_policy_zero, cause=link_expiry_policy_zero  (receipt e14b606b87)
+  [05] lookup_catalog        fix_id=F14, title=Restore the share link expiry policy  (receipt bcf4a00466)
+  [06] apply_fix             applied=True, fix_id=F14  (receipt 7c926a1936)
+  [07] verify_fix            resolved=True  (receipt 6ea759959a)
+  [08] ** CANDIDATE ** lifecycle=candidate, review=rev-mem-D-1  (receipt 668a5349d6)
+  [09] ** HOLD ** waiting_for=human, reason=confidence below hold line  (receipt 5d762b606e)
+  [10] ** FINAL ** status=held, path=catalog, fix_id=F14, confidence=0.5, memory=None, wrong_fixes=[], vetoed=None, candidate=mem-D-1  (receipt 5c040a7f64)
   status: HELD   path: catalog   tool calls: 7   confidence: 0.50
   fix: Restore the share link expiry policy
     1. Open Admin > Sharing > Link policy and read the expiry value.
@@ -22,11 +22,11 @@ Guests get 'link expired' on links I just created
   provenance: fix catalog entry F14; not yet team memory
   learned: CANDIDATE mem-D-1 is waiting in the review queue. It is not recalled until a human promotes it.
   HOLD: confidence 0.50 is below 0.70. The ticket stays open until a human decides (govmem review list).
-  audit: 10 receipts, chain verifies (s2-act1-a)
-tool calls: 7 (steps executed now: 0, steps replayed from receipts: 10)
+  audit: 10 receipts, chain verifies (s2-act1-a-210231)
+tool calls: 7 (steps executed now: 10, steps replayed from receipts: 0)
 === ACT 1 again, same memory state
-  audit: 10 receipts, chain verifies (s2-act1-b)
-tool calls: 7 (steps executed now: 0, steps replayed from receipts: 10)
+  audit: 10 receipts, chain verifies (s2-act1-b-210231)
+tool calls: 7 (steps executed now: 10, steps replayed from receipts: 0)
 === determinism, Act 1
 CHAIN OK: 10 receipts, chain verifies
 tool receipts: 7
@@ -45,53 +45,51 @@ REFUSED: agent requested this review and cannot also approve it
 exit code 2
 === PROMOTE as sarah.chen
 memory: mem-D-1  lifecycle: active  evidence: 0.85  approved_by: sarah.chen
-vector index in sync after 1.0s
+vector index in sync after 0.8s
 === ACT 2a: repeat ticket D-2
 TICKET D-2  team=team-support  account=ACC-4115
 Fresh share links say expired straight away
-  resuming s2-act2a: 4 receipts found, chain verifies
-  [01] recall_memory         top-1 mem-D-1 cosine 0.8755 evidence 0.85  (replayed from receipt, not re-run)
-  [02] apply_fix             applied=True, fix_id=F14  (replayed from receipt, not re-run)
-  [03] verify_fix            resolved=True  (replayed from receipt, not re-run)
-  [04] ** FINAL ** status=resolved, path=fast, fix_id=F14, confidence=0.85, memory=mem-D-1, wrong_fixes=[], vetoed=None, candidate=None  (replayed from receipt, not re-run)
+  [01] recall_memory         top-1 mem-D-1 cosine 0.8755 evidence 0.85  (receipt cb3a95fe89)
+  [02] apply_fix             applied=True, fix_id=F14  (receipt ac8c657729)
+  [03] verify_fix            resolved=True  (receipt 7cc365b5ad)
+  [04] ** FINAL ** status=resolved, path=fast, fix_id=F14, confidence=0.85, memory=mem-D-1, wrong_fixes=[], vetoed=None, candidate=None  (receipt 9a748134e5)
   status: RESOLVED   path: fast   tool calls: 3   confidence: 0.85
   fix: Restore the share link expiry policy
     1. Open Admin > Sharing > Link policy and read the expiry value.
     2. Set the expiry from 0 back to the default 30 days.
     3. Ask the customer to create a new link and open it as a guest.
   provenance: learned from ticket D-1, proposed by agent, approved by sarah.chen (memory mem-D-1)
-  audit: 4 receipts, chain verifies (s2-act2a)
-tool calls: 3 (steps executed now: 0, steps replayed from receipts: 4)
+  audit: 4 receipts, chain verifies (s2-act2a-210231)
+tool calls: 3 (steps executed now: 4, steps replayed from receipts: 0)
 === HANDOFF: new process, new run
 TICKET D-2  team=team-support  account=ACC-4115
 Fresh share links say expired straight away
-  resuming s2-handoff: 4 receipts found, chain verifies
-  [01] recall_memory         top-1 mem-D-1 cosine 0.8755 evidence 0.85  (replayed from receipt, not re-run)
-  [02] apply_fix             applied=True, fix_id=F14  (replayed from receipt, not re-run)
-  [03] verify_fix            resolved=True  (replayed from receipt, not re-run)
-  [04] ** FINAL ** status=resolved, path=fast, fix_id=F14, confidence=0.85, memory=mem-D-1, wrong_fixes=[], vetoed=None, candidate=None  (replayed from receipt, not re-run)
+  [01] recall_memory         top-1 mem-D-1 cosine 0.8755 evidence 0.85  (receipt be4a79cee0)
+  [02] apply_fix             applied=True, fix_id=F14  (receipt dbf6253b58)
+  [03] verify_fix            resolved=True  (receipt b7612cdb37)
+  [04] ** FINAL ** status=resolved, path=fast, fix_id=F14, confidence=0.85, memory=mem-D-1, wrong_fixes=[], vetoed=None, candidate=None  (receipt 2a28d0c3ee)
   status: RESOLVED   path: fast   tool calls: 3   confidence: 0.85
   fix: Restore the share link expiry policy
     1. Open Admin > Sharing > Link policy and read the expiry value.
     2. Set the expiry from 0 back to the default 30 days.
     3. Ask the customer to create a new link and open it as a guest.
   provenance: learned from ticket D-1, proposed by agent, approved by sarah.chen (memory mem-D-1)
-  audit: 4 receipts, chain verifies (s2-handoff)
-tool calls: 3 (steps executed now: 0, steps replayed from receipts: 4)
+  audit: 4 receipts, chain verifies (s2-handoff-210231)
+tool calls: 3 (steps executed now: 4, steps replayed from receipts: 0)
 === determinism, Act 2a vs handoff
 CHAIN OK: 4 receipts, chain verifies
 tool receipts: 3
 SAME SEQUENCE: 4 steps
 === AUDIT of Act 1
-[01] tool  recall_memory        agent      76f718a59fcdaa1d 8187794ee6
-[02] tool  get_account          agent      dbc89af466887981 2712457131
-[03] tool  check_service_status agent      1b3b4e727daa3dbf 84341f355a
-[04] tool  fetch_logs           agent      4a883842861d8928 baf0447cc4
-[05] tool  lookup_catalog       agent      bd91057af0279930 44b856aa1d
-[06] tool  apply_fix            agent      45513c550c57d929 1849d41dcc
-[07] tool  verify_fix           agent      ba51f00cd4e3b72a d1d8473838
-[08] event candidate            agent      1e87f8dc3f9848fc a665964767
-[09] event hold                 agent      39bd1b132d4b8990 b7df812a92
-[10] event final                agent      8d918f843186ecb6 e40883ccbb
+[01] tool  recall_memory        agent      76f718a59fcdaa1d 8afa51f7eb
+[02] tool  get_account          agent      dbc89af466887981 3802e0e7a8
+[03] tool  check_service_status agent      1b3b4e727daa3dbf 43643fd8a3
+[04] tool  fetch_logs           agent      4a883842861d8928 e14b606b87
+[05] tool  lookup_catalog       agent      bd91057af0279930 bcf4a00466
+[06] tool  apply_fix            agent      45513c550c57d929 7c926a1936
+[07] tool  verify_fix           agent      ba51f00cd4e3b72a 6ea759959a
+[08] event candidate            agent      1e87f8dc3f9848fc 668a5349d6
+[09] event hold                 agent      39bd1b132d4b8990 5d762b606e
+[10] event final                agent      8d918f843186ecb6 5c040a7f64
 CHAIN OK: 10 receipts, chain verifies
 tool receipts: 7

@@ -246,6 +246,9 @@ Evidence file: `docs/evidence/stage5_eval.txt`.
 6. A tool call that was in flight when the process was killed has no receipt and runs after resume (`docs/evidence/stage4_act3.txt`, `docs/evidence/stage4_killtest.txt`).
 7. The demo tickets D-1 (`docs/evidence/stage2.txt`), D-2 (`docs/evidence/stage2.txt`), D-3 (`docs/evidence/stage3.txt`) are separate from the 8 held-out tickets (`docs/evidence/stage5_eval.txt`: 5 twins, 3 lookalikes) and were chosen for the demo.
 8. The sandbox database user has the atlasAdmin role, issued by the organizer (`docs/evidence/stage0.txt`).
+9. The kill tests stop the process right after a receipt is written. The window between a tool finishing and its receipt being written is handled by rule (no receipt means the call runs again) but is not tested.
+10. On resume, the candidate and hold writes are attempted again before their receipt is read. They are idempotent by id, so no duplicate is created.
+11. The committee review (`docs/committee.md`) was independent only for the blocking personas at Stages 0 to 4. Stages 5 and 6 have no independent review. The record is in `docs/build-log.md`.
 
 ## Not used
 

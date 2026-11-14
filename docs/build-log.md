@@ -96,3 +96,41 @@ PR-101 was not reworded. The demo repeat is picked from measured fast-path ticke
   - `twin: mean tool calls: empty 7.00 -> trained 3.60`.
   - `lookalike: mean tool calls: empty 7.00 -> trained 7.00`.
 - Evidence: `docs/evidence/stage5_eval.txt`.
+
+## Committee verdicts and owner gates
+
+Method: advisory personas were judged by the parent session and are **not independent**. Blocking personas were run as
+separate reviewers: Stage 0 and 1 by two Claude subagents (P7, P8); Stages 2 to 4 by one grok-4.7 reviewer through
+agent-local acting as P5, P7 and P8, read-only. Stage 5 and Stage 6 have **no independent committee verdict**; time ran out.
+
+| Stage | Owner gate (Frank) | P7 | P8 | P5 |
+|---|---|---|---|---|
+| 0 | started by owner | advises | CONCERN (atlasAdmin user) | parent-judged |
+| 1 | exception recorded: "Option 1. Keep 0.77 on raw cosine and proceed" | PASS | CONCERN, no FAIL | advises |
+| 2 | "Stage 2 PASS" (relayed review) | **FAIL, fixed** | PASS | CONCERN |
+| 3 | "Stage 3 PASS" (relayed review) | PASS | PASS | no standing |
+| 4 | passes noted by owner's reviewer | CONCERN | CONCERN | CONCERN |
+| 5 | numbers accepted for the pitch | not run | not run | not run |
+| 6 | runbook checked line by line by owner's reviewer | not run | not run | not run |
+
+### Findings and answers
+
+1. **P7 Stage 2 FAIL: the saved `stage2.txt` was a replay, not a live run.** Correct. `seed --reset` stopped deleting
+   `runs` (a P8 Stage 1 fix), and `demo_stage2.sh` reused fixed run ids, so the second run of the script replayed stored
+   receipts (`executed now: 0`). The first live run earlier in the day was real but its file was overwritten.
+   Fixed: the script now uses a time-stamped run id per run. Re-run live at 21:03Z in a separate database
+   (`mongogov_evidence`) so the demo database was not disturbed: Act 1 `steps executed now: 10, replayed: 0`, 7 tool
+   calls; Act 2a and handoff `executed now: 4, replayed: 0`, 3 tool calls each. Evidence: `docs/evidence/stage2.txt`.
+2. **P8 Stage 4 CONCERN: `propose()` and `open_hold()` run before their receipt is consulted, so a resume repeats those
+   writes.** Correct. Both are idempotent by id (an existing candidate or hold is returned, not duplicated), so no
+   duplicate memory or review is created, but the write is attempted again. Not changed today; stated in the README limits.
+3. **P5/P7 Stage 4 CONCERN: every kill lands after a receipt write; nothing kills between a tool body and its receipt.**
+   Correct. The rule "no receipt means it never ran" is implemented but that window is not tested. Stated in the limits.
+4. **P7 Stage 4 CONCERN: the executed/replayed split in the kill matrix is parsed from the child's output.** Correct.
+   The totals, sequence numbers, hashes of pre-kill receipts, and step digests are read from `runs`; the split is not.
+5. **P8 Stage 4 CONCERN: the tamper test alters an in-memory copy, not a stored receipt.** Correct, by design: the
+   audit log is never modified. The verifier used is the same one `audit` runs against stored receipts.
+6. **P8 Stage 1 findings** (no database validator, seed deleting `runs`, seed imports without receipts, probe document
+   without actor): fixed before Stage 2. `atlasAdmin` on the organizer's user: noted, not changed.
+7. **P7 Stage 1 notes:** tickets share anchor phrases and one author, so cosines are probably optimistic; choosing the
+   demo repeat from measured tickets is selection. Both are stated in the README limits and the runbook.
