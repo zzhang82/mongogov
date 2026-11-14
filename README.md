@@ -1,12 +1,37 @@
-# Governed memory for a support agent
+# MongoGov
 
-An agent that learns fixes from resolved support tickets, where nothing it learns becomes team memory until a human approves it, a low-evidence fix is blocked even when it looks similar, and every step leaves a hash-chained receipt in MongoDB Atlas that a killed run resumes from. Built 2026-11-14 (`docs/evidence/stage0.txt`) for the "Agents in Context Toronto" MongoDB hackathon, track "Memory You Can Govern". Mental model: code review for agent memory (candidate = pull request, promotion = merge, evidence veto = failing CI, supersede and forget = revert, actor stamps = blame).
+Governed memory for a support agent. The program is `govmem`.
+
+<p align="center">
+  <img src="assets/hero.jpg" alt="A hand sets down a blank card. A second hand stamps it. A third card is withdrawn." width="720">
+</p>
+
+A support agent may not use a fix until a different person approves it, and that fix stands until a person supersedes it or forgets it. Nothing expires. There is no decay.
+
+Built 2026-11-14 (`docs/evidence/stage0.txt`) for Agents in Context Toronto, problem **Memory You Can Govern**. This page leads with that problem. Receipts, kill, and resume are in the rules below. They are difficulty. They answer the other two problems. They are not the product.
+
+## What a judge can check
+
+| Mark | What is true |
+| --- | --- |
+| Who may use a memory | Only after a different person promotes it. `--as NAME` is an unauthenticated label, not a person who signed in. |
+| Who it is kept from | One team does not see another's memories. The filter is inside `$vectorSearch`. There is no per-person read rule. |
+| How long it lives | Until a person supersedes it or forgets it. No clock. No decay. |
+| A close but weak fix | Evidence below 0.50 is blocked even at cosine 0.9324 (demo D-3). |
+| Same incident, next time | Five twins: tool calls `[7, 7, 7, 7, 7]` with empty memory, `[6, 3, 3, 3, 3]` after approval. Mean 3.60. Five of five resolved. None wrong. The 6 is the trusted path. |
+| A ticket that only looks the same | Three lookalikes stay `[7, 7, 7]`. After approval, 3 of 3 still resolve by the catalog path, 0 wrong, and the wrong memory is vetoed 3 of 3. Not blended with the twins. |
+| What this does not catch | A lookalike whose nearest memory is a well-approved fix is not vetoed. No such case is in the held-out set. |
+| What the numbers are | All tickets are synthetic. The cosines are probably optimistic. |
+
+The mental model is code review for agent memory. A candidate is a pull request. Promotion is the merge. An evidence veto is a failing check. Supersede and forget are the revert. The actor stamps are the blame.
 
 ## Why
 
-A plain retrieve-and-apply loop fails in three ways. It poisons itself: one lucky fix gets a thumbs-up and becomes permanent team knowledge. It is confidently wrong: a lookalike ticket retrieves an old fix at high similarity. And its memory never dies: a fix that was right in March keeps coming back after it stops being right.
+A plain retrieve-and-apply loop fails in three ways. It poisons itself: one lucky fix gets a thumbs-up and becomes permanent team knowledge. It is confidently wrong: a lookalike ticket retrieves an old fix at high similarity. And a fix that was right in March keeps coming back after it stops being right, because nothing withdraws it.
 
-This project answers each one with a rule a team controls. The demo story and the exact commands are in [`docs/demo-runbook.md`](docs/demo-runbook.md). The stage-by-stage record is in [`docs/build-log.md`](docs/build-log.md).
+The first is answered by refusing self-approval. The second is answered by blocking evidence below 0.50 even when the cosine is high. The third is not answered by a clock. A person supersedes the memory or forgets it. That is rule G5 below.
+
+The demo story and the exact commands are in [`docs/demo-runbook.md`](docs/demo-runbook.md). The stage-by-stage record is in [`docs/build-log.md`](docs/build-log.md).
 
 ## The six rules
 
@@ -45,6 +70,8 @@ No model chooses tools, and there is no generated text. Tool calls execute in a 
 - Long path (7 tool calls; `docs/evidence/stage2.txt`, `docs/evidence/stage5_eval.txt`): `recall_memory`, `get_account`, `check_service_status`, `fetch_logs`, `lookup_catalog`, `apply_fix`, `verify_fix`.
 - Trusted path (6 tool calls; `docs/evidence/stage5_eval.txt`): Same as long path without `lookup_catalog`, when logs confirm the recalled cause.
 - Fast path (3 tool calls; `docs/evidence/stage2.txt`, `docs/evidence/stage5_eval.txt`): `recall_memory`, `apply_fix`, `verify_fix`.
+
+Hold is decided after that path has already run. Apply and verify have already happened. A ticket can be resolved by the tools and still be marked held when confidence is below 0.70.
 
 ### Decision thresholds
 
