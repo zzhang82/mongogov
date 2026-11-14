@@ -33,6 +33,10 @@ The first is answered by refusing self-approval. The second is answered by block
 
 The demo story and the exact commands are in [`docs/demo-runbook.md`](docs/demo-runbook.md). The stage-by-stage record is in [`docs/build-log.md`](docs/build-log.md).
 
+[One-minute demo](https://www.youtube.com/watch?v=n0-Jay3TdHg&feature=youtu.be)
+
+[Presentation](https://claude.ai/artifact/BN7ECFW2Gkm2ciLgtnCNX1)
+
 ## The six rules
 
 | Rule | What the rule is | Code location | Evidence file |
