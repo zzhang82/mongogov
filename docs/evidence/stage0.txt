@@ -1,0 +1,10 @@
+2026-11-14T17:29:02+00:00 connected: server 9.0.7, database 'mongogov'
+roles: ['atlasAdmin@admin', 'backup@admin', 'clusterMonitor@admin', 'dbAdminAnyDatabase@admin', 'enableSharding@admin', 'readWriteAnyDatabase@admin']
+collections: ['memories', 'reviews', 'runs', 'tickets']
+search indexes on memories before: [('memories_vec', 'READY')]
+vector index: exists
+2026-11-14T17:29:04+00:00 index memories_vec status=READY queryable=True
+definition: {'fields': [{'type': 'vector', 'path': 'embedding', 'numDimensions': 1024, 'similarity': 'cosine'}, {'type': 'filter', 'path': 'namespace'}, {'type': 'filter', 'path': 'lifecycle'}]}
+2026-11-14T17:29:07+00:00 live $vectorSearch: [{'_id': 'stage0-probe', 'score': 1.0}] after 2.4s sync lag
+same query, other namespace filter: []
+STAGE 0: PASS

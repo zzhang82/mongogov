@@ -1,0 +1,17 @@
+2026-11-14T17:29:10+00:00 index in sync after 0.6s; active memories per team: {'team-support': 10, 'team-billing': 2}
+ticket  kind    top-1       cosine  atlas  evidence  band     2nd         2nd cos
+PR-101  repeat  mem-TR-101  0.6946  0.8473 0.85      TRUSTED  mem-TR-108  0.4793
+PR-102  repeat  mem-TR-102  0.8525  0.9263 0.85      FAST     mem-TR-108  0.4554
+PR-103  repeat  mem-TR-103  0.8446  0.9223 0.85      FAST     mem-TR-107  0.3979
+PR-104  repeat  mem-TR-104  0.8707  0.9353 0.85      FAST     mem-TR-106  0.4160
+PR-105  repeat  mem-TR-105  0.8065  0.9032 0.85      FAST     mem-TR-103  0.3367
+PR-106  repeat  mem-TR-106  0.8051  0.9025 0.85      FAST     mem-TR-104  0.4423
+PR-107  repeat  mem-TR-107  0.8887  0.9443 0.85      FAST     mem-TR-102  0.4161
+PR-108  trap    mem-TR-108  0.9321  0.9661 0.26      VETO     mem-TR-106  0.4379
+PR-109  trap    mem-TR-109  0.8263  0.9131 0.26      VETO     mem-TR-103  0.3891
+PR-110  trap    mem-TR-110  0.8274  0.9137 0.26      VETO     mem-TR-102  0.3777
+isolation: PR-101 under team-billing sees [('mem-TR-201', 'team-billing', 0.3122), ('mem-TR-202', 'team-billing', 0.2675)]
+repeat top-1 cosine: min 0.6946, max 0.8887, n=7 (abort line 0.75, fast path 0.77)
+trap top-1 cosine:   min 0.8263, max 0.9321, n=3 (veto floor 0.30)
+top-1 is not the expected memory for: none
+PROBE: ABORT LINE HIT - stop and ask Frank

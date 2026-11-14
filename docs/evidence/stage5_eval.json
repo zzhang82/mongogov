@@ -1,0 +1,2011 @@
+{
+  "timestamp": "2026-11-14T17:58:15.880703+00:00",
+  "tickets": "heldout",
+  "thresholds": {
+    "FAST_SIM": 0.77,
+    "FAST_EVIDENCE": 0.8,
+    "TRUST_SIM": 0.55,
+    "TRUST_EVIDENCE": 0.6,
+    "VETO_SIM": 0.3,
+    "VETO_EVIDENCE": 0.5,
+    "HOLD_CONFIDENCE": 0.7
+  },
+  "memory_counts": {
+    "team-billing": {
+      "active": 2
+    },
+    "team-support": {
+      "active": 10
+    }
+  },
+  "run_ids": [
+    "eval-175444-empty-a-HT-1@empty",
+    "eval-175444-empty-a-HT-2@empty",
+    "eval-175444-empty-a-HT-3@empty",
+    "eval-175444-empty-a-HT-4@empty",
+    "eval-175444-empty-a-HT-5@empty",
+    "eval-175444-empty-a-HL-1@empty",
+    "eval-175444-empty-a-HL-2@empty",
+    "eval-175444-empty-a-HL-3@empty",
+    "eval-175444-empty-b-HT-1@empty",
+    "eval-175444-empty-b-HT-2@empty",
+    "eval-175444-empty-b-HT-3@empty",
+    "eval-175444-empty-b-HT-4@empty",
+    "eval-175444-empty-b-HT-5@empty",
+    "eval-175444-empty-b-HL-1@empty",
+    "eval-175444-empty-b-HL-2@empty",
+    "eval-175444-empty-b-HL-3@empty",
+    "eval-175444-trained-a-HT-1",
+    "eval-175444-trained-a-HT-2",
+    "eval-175444-trained-a-HT-3",
+    "eval-175444-trained-a-HT-4",
+    "eval-175444-trained-a-HT-5",
+    "eval-175444-trained-a-HL-1",
+    "eval-175444-trained-a-HL-2",
+    "eval-175444-trained-a-HL-3",
+    "eval-175444-trained-b-HT-1",
+    "eval-175444-trained-b-HT-2",
+    "eval-175444-trained-b-HT-3",
+    "eval-175444-trained-b-HT-4",
+    "eval-175444-trained-b-HT-5",
+    "eval-175444-trained-b-HL-1",
+    "eval-175444-trained-b-HL-2",
+    "eval-175444-trained-b-HL-3"
+  ],
+  "runs": [
+    {
+      "run_id": "eval-175444-empty-a-HT-1@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HT-1@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "ae3b8fef681e9ae8"
+        ],
+        [
+          "tool",
+          "get_account",
+          "c025d1970bd951ea"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "fb2ffc86ffb7c099"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "40ced8b5452eaa05"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "169059fb3606b4bb"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "7951616e9b2c88de"
+        ],
+        [
+          "event",
+          "candidate",
+          "102a3ee7c8dcca1c"
+        ],
+        [
+          "event",
+          "hold",
+          "e43605b0419502a2"
+        ],
+        [
+          "event",
+          "final",
+          "fd1a853b9246aa58"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HT-2@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HT-2@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "4a9426d72d82bd4e"
+        ],
+        [
+          "tool",
+          "get_account",
+          "58e679fa59242887"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "828fb54f3cd31612"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "97741e0d53efad0f"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "2fba899aade72147"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "04ffe41170f9c4b2"
+        ],
+        [
+          "event",
+          "candidate",
+          "cadeba9a4b81b44b"
+        ],
+        [
+          "event",
+          "hold",
+          "22dcdfd2bca9e596"
+        ],
+        [
+          "event",
+          "final",
+          "9b3f4771f783fd77"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HT-3@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HT-3@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "dbd2d583e92b944c"
+        ],
+        [
+          "tool",
+          "get_account",
+          "4a5013ef47b16bef"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "21fcf8d17b2a3156"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "b6487708d25a03af"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e07ee661e252bc17"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "27ebf71711ba2c71"
+        ],
+        [
+          "event",
+          "candidate",
+          "297c4986a4feb8a2"
+        ],
+        [
+          "event",
+          "hold",
+          "d3b3b7a8eff8efe6"
+        ],
+        [
+          "event",
+          "final",
+          "26308e3f6ada0adf"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HT-4@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HT-4@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "048840c3444bffb5"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f36058ec36581147"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "847a915c852e54ec"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "1708928447ca9ca1"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "7fbc52b17639054e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "87ccb82d9b4a06d8"
+        ],
+        [
+          "event",
+          "candidate",
+          "76fe6d275d3423ae"
+        ],
+        [
+          "event",
+          "hold",
+          "490dae38736faabf"
+        ],
+        [
+          "event",
+          "final",
+          "2e582c1fbe915178"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HT-5@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HT-5@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "13a76cd6ff8ce944"
+        ],
+        [
+          "tool",
+          "get_account",
+          "de1ee142db0704e5"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "dabbdb95309cd84e"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "1b9da99b8e302167"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "d7880188b039b9c7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "f25417dc3089c853"
+        ],
+        [
+          "event",
+          "candidate",
+          "de44c1e8b54106dd"
+        ],
+        [
+          "event",
+          "hold",
+          "598e8a5ae17eccbd"
+        ],
+        [
+          "event",
+          "final",
+          "ec844b4bc3dfa936"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HL-1@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HL-1@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "8f72ad6292c6f6e8"
+        ],
+        [
+          "tool",
+          "get_account",
+          "dd5f9c0b305eef11"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "25181e2aabfd30f7"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "8ca7ce3c1e5f318d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "a9ba8b515b2f6a23"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "2e5c495a39d70dc7"
+        ],
+        [
+          "event",
+          "candidate",
+          "0a1a2e288b30d420"
+        ],
+        [
+          "event",
+          "hold",
+          "c03c61eb2aab91c4"
+        ],
+        [
+          "event",
+          "final",
+          "2984e8b650bcf271"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HL-2@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HL-2@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "93c6ed4748a4dd6a"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f98f9f0b7f866968"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "e7fb00510a9692e1"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "643a13a0262214db"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e673163e06e4cbc7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "d497056b586ced40"
+        ],
+        [
+          "event",
+          "candidate",
+          "a956590343905138"
+        ],
+        [
+          "event",
+          "hold",
+          "abc01028e5e915f0"
+        ],
+        [
+          "event",
+          "final",
+          "fa4b227c1b323da0"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-a-HL-3@empty",
+      "condition": "empty",
+      "rep": "a",
+      "ticket": "HL-3@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "0200190b4e7fce6b"
+        ],
+        [
+          "tool",
+          "get_account",
+          "7c21b60d007789cf"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "c08569ac99b4aece"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "6576f4a9e21f8ef2"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "ea8aa8eb3c7cbd5e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "c2bbb52a7c8c10d5"
+        ],
+        [
+          "event",
+          "candidate",
+          "3118e68a5e232ca4"
+        ],
+        [
+          "event",
+          "hold",
+          "d437482e55e0faa4"
+        ],
+        [
+          "event",
+          "final",
+          "118ae3f0743c1387"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HT-1@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HT-1@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "ae3b8fef681e9ae8"
+        ],
+        [
+          "tool",
+          "get_account",
+          "c025d1970bd951ea"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "fb2ffc86ffb7c099"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "40ced8b5452eaa05"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "169059fb3606b4bb"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "7951616e9b2c88de"
+        ],
+        [
+          "event",
+          "candidate",
+          "102a3ee7c8dcca1c"
+        ],
+        [
+          "event",
+          "hold",
+          "e43605b0419502a2"
+        ],
+        [
+          "event",
+          "final",
+          "fd1a853b9246aa58"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HT-2@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HT-2@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "4a9426d72d82bd4e"
+        ],
+        [
+          "tool",
+          "get_account",
+          "58e679fa59242887"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "828fb54f3cd31612"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "97741e0d53efad0f"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "2fba899aade72147"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "04ffe41170f9c4b2"
+        ],
+        [
+          "event",
+          "candidate",
+          "cadeba9a4b81b44b"
+        ],
+        [
+          "event",
+          "hold",
+          "22dcdfd2bca9e596"
+        ],
+        [
+          "event",
+          "final",
+          "9b3f4771f783fd77"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HT-3@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HT-3@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "dbd2d583e92b944c"
+        ],
+        [
+          "tool",
+          "get_account",
+          "4a5013ef47b16bef"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "21fcf8d17b2a3156"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "b6487708d25a03af"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e07ee661e252bc17"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "27ebf71711ba2c71"
+        ],
+        [
+          "event",
+          "candidate",
+          "297c4986a4feb8a2"
+        ],
+        [
+          "event",
+          "hold",
+          "d3b3b7a8eff8efe6"
+        ],
+        [
+          "event",
+          "final",
+          "26308e3f6ada0adf"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HT-4@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HT-4@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "048840c3444bffb5"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f36058ec36581147"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "847a915c852e54ec"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "1708928447ca9ca1"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "7fbc52b17639054e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "87ccb82d9b4a06d8"
+        ],
+        [
+          "event",
+          "candidate",
+          "76fe6d275d3423ae"
+        ],
+        [
+          "event",
+          "hold",
+          "490dae38736faabf"
+        ],
+        [
+          "event",
+          "final",
+          "2e582c1fbe915178"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HT-5@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HT-5@empty",
+      "kind": "twin",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "13a76cd6ff8ce944"
+        ],
+        [
+          "tool",
+          "get_account",
+          "de1ee142db0704e5"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "dabbdb95309cd84e"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "1b9da99b8e302167"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "d7880188b039b9c7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "f25417dc3089c853"
+        ],
+        [
+          "event",
+          "candidate",
+          "de44c1e8b54106dd"
+        ],
+        [
+          "event",
+          "hold",
+          "598e8a5ae17eccbd"
+        ],
+        [
+          "event",
+          "final",
+          "ec844b4bc3dfa936"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HL-1@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HL-1@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "8f72ad6292c6f6e8"
+        ],
+        [
+          "tool",
+          "get_account",
+          "dd5f9c0b305eef11"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "25181e2aabfd30f7"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "8ca7ce3c1e5f318d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "a9ba8b515b2f6a23"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "2e5c495a39d70dc7"
+        ],
+        [
+          "event",
+          "candidate",
+          "0a1a2e288b30d420"
+        ],
+        [
+          "event",
+          "hold",
+          "c03c61eb2aab91c4"
+        ],
+        [
+          "event",
+          "final",
+          "2984e8b650bcf271"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HL-2@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HL-2@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "93c6ed4748a4dd6a"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f98f9f0b7f866968"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "e7fb00510a9692e1"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "643a13a0262214db"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e673163e06e4cbc7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "d497056b586ced40"
+        ],
+        [
+          "event",
+          "candidate",
+          "a956590343905138"
+        ],
+        [
+          "event",
+          "hold",
+          "abc01028e5e915f0"
+        ],
+        [
+          "event",
+          "final",
+          "fa4b227c1b323da0"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-empty-b-HL-3@empty",
+      "condition": "empty",
+      "rep": "b",
+      "ticket": "HL-3@empty",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "0200190b4e7fce6b"
+        ],
+        [
+          "tool",
+          "get_account",
+          "7c21b60d007789cf"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "c08569ac99b4aece"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "6576f4a9e21f8ef2"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "ea8aa8eb3c7cbd5e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "c2bbb52a7c8c10d5"
+        ],
+        [
+          "event",
+          "candidate",
+          "3118e68a5e232ca4"
+        ],
+        [
+          "event",
+          "hold",
+          "d437482e55e0faa4"
+        ],
+        [
+          "event",
+          "final",
+          "118ae3f0743c1387"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HT-1",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HT-1",
+      "kind": "twin",
+      "path": "trusted",
+      "tool_calls": 6,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "57b5fb4381077d97"
+        ],
+        [
+          "tool",
+          "get_account",
+          "c025d1970bd951ea"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "fb2ffc86ffb7c099"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "169059fb3606b4bb"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "7951616e9b2c88de"
+        ],
+        [
+          "event",
+          "final",
+          "1a8cd84e0fb1b47f"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HT-2",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HT-2",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "97ec588589433076"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "2fba899aade72147"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "04ffe41170f9c4b2"
+        ],
+        [
+          "event",
+          "final",
+          "925b417fd6279890"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HT-3",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HT-3",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "9289ed231d1b1479"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e07ee661e252bc17"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "27ebf71711ba2c71"
+        ],
+        [
+          "event",
+          "final",
+          "fd57d8cee670c022"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HT-4",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HT-4",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "f2fff567be6b0204"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "7fbc52b17639054e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "87ccb82d9b4a06d8"
+        ],
+        [
+          "event",
+          "final",
+          "a108ceafeb2ae4b6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HT-5",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HT-5",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "87544463aab0399d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "d7880188b039b9c7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "f25417dc3089c853"
+        ],
+        [
+          "event",
+          "final",
+          "588b8410ff3ab7f6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HL-1",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HL-1",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "843e1873cabc5584"
+        ],
+        [
+          "event",
+          "veto",
+          "b16691c760c7e17b"
+        ],
+        [
+          "tool",
+          "get_account",
+          "dd5f9c0b305eef11"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "25181e2aabfd30f7"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "8ca7ce3c1e5f318d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "a9ba8b515b2f6a23"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "2e5c495a39d70dc7"
+        ],
+        [
+          "event",
+          "candidate",
+          "24faa40e1d98ba70"
+        ],
+        [
+          "event",
+          "hold",
+          "0f82dd4582863780"
+        ],
+        [
+          "event",
+          "final",
+          "45f539388d71afa6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HL-2",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HL-2",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "54c2d45b3aa88843"
+        ],
+        [
+          "event",
+          "veto",
+          "7a88d49bb49dddda"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f98f9f0b7f866968"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "e7fb00510a9692e1"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "643a13a0262214db"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e673163e06e4cbc7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "d497056b586ced40"
+        ],
+        [
+          "event",
+          "candidate",
+          "615f4d96647483c4"
+        ],
+        [
+          "event",
+          "hold",
+          "c89cad7ba627eeb1"
+        ],
+        [
+          "event",
+          "final",
+          "316a271a7eb0a39f"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-a-HL-3",
+      "condition": "trained",
+      "rep": "a",
+      "ticket": "HL-3",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "e9a5d9886ccb9f06"
+        ],
+        [
+          "event",
+          "veto",
+          "14fe8fd287d20487"
+        ],
+        [
+          "tool",
+          "get_account",
+          "7c21b60d007789cf"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "c08569ac99b4aece"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "6576f4a9e21f8ef2"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "ea8aa8eb3c7cbd5e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "c2bbb52a7c8c10d5"
+        ],
+        [
+          "event",
+          "candidate",
+          "3370ca972753d7dc"
+        ],
+        [
+          "event",
+          "hold",
+          "ca4f315850711d32"
+        ],
+        [
+          "event",
+          "final",
+          "9c16f1144203fcd6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HT-1",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HT-1",
+      "kind": "twin",
+      "path": "trusted",
+      "tool_calls": 6,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "57b5fb4381077d97"
+        ],
+        [
+          "tool",
+          "get_account",
+          "c025d1970bd951ea"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "fb2ffc86ffb7c099"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "169059fb3606b4bb"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "7951616e9b2c88de"
+        ],
+        [
+          "event",
+          "final",
+          "1a8cd84e0fb1b47f"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HT-2",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HT-2",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "97ec588589433076"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "2fba899aade72147"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "04ffe41170f9c4b2"
+        ],
+        [
+          "event",
+          "final",
+          "925b417fd6279890"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HT-3",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HT-3",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "9289ed231d1b1479"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e07ee661e252bc17"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "27ebf71711ba2c71"
+        ],
+        [
+          "event",
+          "final",
+          "fd57d8cee670c022"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HT-4",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HT-4",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "f2fff567be6b0204"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "7fbc52b17639054e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "87ccb82d9b4a06d8"
+        ],
+        [
+          "event",
+          "final",
+          "a108ceafeb2ae4b6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HT-5",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HT-5",
+      "kind": "twin",
+      "path": "fast",
+      "tool_calls": 3,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 0,
+      "held": false,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "87544463aab0399d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "d7880188b039b9c7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "f25417dc3089c853"
+        ],
+        [
+          "event",
+          "final",
+          "588b8410ff3ab7f6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HL-1",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HL-1",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "843e1873cabc5584"
+        ],
+        [
+          "event",
+          "veto",
+          "b16691c760c7e17b"
+        ],
+        [
+          "tool",
+          "get_account",
+          "dd5f9c0b305eef11"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "25181e2aabfd30f7"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "8ca7ce3c1e5f318d"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "a9ba8b515b2f6a23"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "2e5c495a39d70dc7"
+        ],
+        [
+          "event",
+          "candidate",
+          "24faa40e1d98ba70"
+        ],
+        [
+          "event",
+          "hold",
+          "0f82dd4582863780"
+        ],
+        [
+          "event",
+          "final",
+          "45f539388d71afa6"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HL-2",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HL-2",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "54c2d45b3aa88843"
+        ],
+        [
+          "event",
+          "veto",
+          "7a88d49bb49dddda"
+        ],
+        [
+          "tool",
+          "get_account",
+          "f98f9f0b7f866968"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "36525af4eb331219"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "e7fb00510a9692e1"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "643a13a0262214db"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "e673163e06e4cbc7"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "d497056b586ced40"
+        ],
+        [
+          "event",
+          "candidate",
+          "615f4d96647483c4"
+        ],
+        [
+          "event",
+          "hold",
+          "c89cad7ba627eeb1"
+        ],
+        [
+          "event",
+          "final",
+          "316a271a7eb0a39f"
+        ]
+      ]
+    },
+    {
+      "run_id": "eval-175444-trained-b-HL-3",
+      "condition": "trained",
+      "rep": "b",
+      "ticket": "HL-3",
+      "kind": "lookalike",
+      "path": "catalog",
+      "tool_calls": 7,
+      "resolved": true,
+      "wrong_fixes": 0,
+      "vetoed": 1,
+      "held": true,
+      "chain_ok": true,
+      "sequence": [
+        [
+          "tool",
+          "recall_memory",
+          "e9a5d9886ccb9f06"
+        ],
+        [
+          "event",
+          "veto",
+          "14fe8fd287d20487"
+        ],
+        [
+          "tool",
+          "get_account",
+          "7c21b60d007789cf"
+        ],
+        [
+          "tool",
+          "check_service_status",
+          "1b3b4e727daa3dbf"
+        ],
+        [
+          "tool",
+          "fetch_logs",
+          "c08569ac99b4aece"
+        ],
+        [
+          "tool",
+          "lookup_catalog",
+          "6576f4a9e21f8ef2"
+        ],
+        [
+          "tool",
+          "apply_fix",
+          "ea8aa8eb3c7cbd5e"
+        ],
+        [
+          "tool",
+          "verify_fix",
+          "c2bbb52a7c8c10d5"
+        ],
+        [
+          "event",
+          "candidate",
+          "3370ca972753d7dc"
+        ],
+        [
+          "event",
+          "hold",
+          "ca4f315850711d32"
+        ],
+        [
+          "event",
+          "final",
+          "9c16f1144203fcd6"
+        ]
+      ]
+    }
+  ],
+  "summaries": {
+    "empty": {
+      "per_class": {
+        "twin": {
+          "n": 5,
+          "resolved": "5 of 5",
+          "wrong_fixes": 0,
+          "vetoes": "0 of 5",
+          "holds": "5 of 5",
+          "fast_path": "0 of 5",
+          "tool_calls": [
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "mean": 7.0
+        },
+        "lookalike": {
+          "n": 3,
+          "resolved": "3 of 3",
+          "wrong_fixes": 0,
+          "vetoes": "0 of 3",
+          "holds": "3 of 3",
+          "fast_path": "0 of 3",
+          "tool_calls": [
+            7,
+            7,
+            7
+          ],
+          "mean": 7.0
+        }
+      },
+      "rep_comparison": "identical"
+    },
+    "trained": {
+      "per_class": {
+        "twin": {
+          "n": 5,
+          "resolved": "5 of 5",
+          "wrong_fixes": 0,
+          "vetoes": "0 of 5",
+          "holds": "0 of 5",
+          "fast_path": "4 of 5",
+          "tool_calls": [
+            6,
+            3,
+            3,
+            3,
+            3
+          ],
+          "mean": 3.6
+        },
+        "lookalike": {
+          "n": 3,
+          "resolved": "3 of 3",
+          "wrong_fixes": 0,
+          "vetoes": "3 of 3",
+          "holds": "3 of 3",
+          "fast_path": "0 of 3",
+          "tool_calls": [
+            7,
+            7,
+            7
+          ],
+          "mean": 7.0
+        }
+      },
+      "rep_comparison": "identical"
+    }
+  },
+  "mean_tool_calls": {
+    "twin": {
+      "empty": 7.0,
+      "trained": 3.6
+    },
+    "lookalike": {
+      "empty": 7.0,
+      "trained": 7.0
+    }
+  }
+}

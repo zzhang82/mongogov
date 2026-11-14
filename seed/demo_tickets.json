@@ -1,0 +1,26 @@
+[
+ {
+  "id": "D-1",
+  "team": "team-support",
+  "kind": "novel",
+  "account": "ACC-4114",
+  "subject": "Guests get 'link expired' on links I just created",
+  "body": "I create a share link for a client, send it within a minute, and they see 'this link has expired'. It happens with every new link since the beginning of the week. Old links still open."
+ },
+ {
+  "id": "D-2",
+  "team": "team-support",
+  "kind": "repeat",
+  "account": "ACC-4115",
+  "subject": "Fresh share links say expired straight away",
+  "body": "Every share link I make for external clients shows 'this link has expired' as soon as they click it, even seconds after I create it. Links made before this week work."
+ },
+ {
+  "id": "D-3",
+  "team": "team-support",
+  "kind": "lookalike",
+  "account": "ACC-4108",
+  "subject": "Meeting times differ between teammates in the shared calendar",
+  "body": "A recurring meeting in our shared calendar shows up an hour apart for different people on the team. Some see it at the right time. We compared the same event on two screens."
+ }
+]

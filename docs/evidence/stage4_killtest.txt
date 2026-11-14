@@ -1,0 +1,20 @@
+2026-11-14 rerun after the resume fix (about 18:00-18:23Z; the laptop slept during this run)
+k  before  executed  replayed  tools  repeated  chain  sequence  result
+1  1       10        1         7      0         ok     same      PASS
+2  2       9         2         7      0         ok     same      PASS
+3  3       8         3         7      0         ok     same      PASS
+4  4       7         4         7      0         ok     same      PASS
+5  5       6         5         7      0         ok     same      PASS
+6  6       5         6         7      0         ok     same      PASS
+7  7       4         7         7      0         ok     same      PASS
+8  8       3         8         7      0         ok     same      PASS
+9  9       2         9         7      0         ok     same      PASS
+10 10      1         10        7      0         ok     same      PASS
+BASELINE: 11 receipts, 7 tool calls
+KILL MATRIX: 10 of 10 kill points passed
+EXTERNAL KILL: PASS (killed at 3 receipts)
+TAMPER: 4 of 4 detected as expected
+  alter seq 2 result: caught (seq 2: stored hash does not match its content)
+  remove middle receipt: caught (sequence gap: expected 6, found 7)
+  swap two receipts: caught (sequence gap: expected 2, found 3)
+  drop tail stays verifiable: caught (tail open (full baseline complete))

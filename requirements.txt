@@ -1,0 +1,4 @@
+pymongo
+voyageai
+python-dotenv
+pytest

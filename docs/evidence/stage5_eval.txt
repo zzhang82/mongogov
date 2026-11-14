@@ -1,0 +1,58 @@
+index sync: 1.15s, active memories: {'team-support': 10, 'team-billing': 2}
+thresholds: {'FAST_SIM': 0.77, 'FAST_EVIDENCE': 0.8, 'TRUST_SIM': 0.55, 'TRUST_EVIDENCE': 0.6, 'VETO_SIM': 0.3, 'VETO_EVIDENCE': 0.5, 'HOLD_CONFIDENCE': 0.7}
+memories per namespace and lifecycle: {'team-billing': {'active': 2}, 'team-support': {'active': 10}}
+
+condition  rep  ticket           kind        path      tool_calls  resolved  wrong_fixes  vetoed  held   chain ok
+empty      a    HT-1@empty       twin        catalog   7           True      0            0       True   True
+empty      a    HT-2@empty       twin        catalog   7           True      0            0       True   True
+empty      a    HT-3@empty       twin        catalog   7           True      0            0       True   True
+  voyage rate limit; waiting 25s (attempt 1 of 4)
+  voyage rate limit; waiting 25s (attempt 2 of 4)
+empty      a    HT-4@empty       twin        catalog   7           True      0            0       True   True
+empty      a    HT-5@empty       twin        catalog   7           True      0            0       True   True
+empty      a    HL-1@empty       lookalike   catalog   7           True      0            0       True   True
+  voyage rate limit; waiting 25s (attempt 1 of 4)
+  voyage rate limit; waiting 25s (attempt 2 of 4)
+empty      a    HL-2@empty       lookalike   catalog   7           True      0            0       True   True
+empty      a    HL-3@empty       lookalike   catalog   7           True      0            0       True   True
+empty      b    HT-1@empty       twin        catalog   7           True      0            0       True   True
+empty      b    HT-2@empty       twin        catalog   7           True      0            0       True   True
+empty      b    HT-3@empty       twin        catalog   7           True      0            0       True   True
+empty      b    HT-4@empty       twin        catalog   7           True      0            0       True   True
+empty      b    HT-5@empty       twin        catalog   7           True      0            0       True   True
+empty      b    HL-1@empty       lookalike   catalog   7           True      0            0       True   True
+empty      b    HL-2@empty       lookalike   catalog   7           True      0            0       True   True
+empty      b    HL-3@empty       lookalike   catalog   7           True      0            0       True   True
+trained    a    HT-1             twin        trusted   6           True      0            0       False  True
+trained    a    HT-2             twin        fast      3           True      0            0       False  True
+trained    a    HT-3             twin        fast      3           True      0            0       False  True
+trained    a    HT-4             twin        fast      3           True      0            0       False  True
+trained    a    HT-5             twin        fast      3           True      0            0       False  True
+trained    a    HL-1             lookalike   catalog   7           True      0            1       True   True
+trained    a    HL-2             lookalike   catalog   7           True      0            1       True   True
+trained    a    HL-3             lookalike   catalog   7           True      0            1       True   True
+trained    b    HT-1             twin        trusted   6           True      0            0       False  True
+trained    b    HT-2             twin        fast      3           True      0            0       False  True
+trained    b    HT-3             twin        fast      3           True      0            0       False  True
+trained    b    HT-4             twin        fast      3           True      0            0       False  True
+trained    b    HT-5             twin        fast      3           True      0            0       False  True
+trained    b    HL-1             lookalike   catalog   7           True      0            1       True   True
+trained    b    HL-2             lookalike   catalog   7           True      0            1       True   True
+trained    b    HL-3             lookalike   catalog   7           True      0            1       True   True
+
+CONDITION: empty (rep a; n = number of tickets)
+class       n    resolved   wrong_fixes  vetoes   holds    fast_path   tool_calls                       mean
+twin        5    5 of 5     0            0 of 5   5 of 5   0 of 5      [7, 7, 7, 7, 7]                  7.00
+lookalike   3    3 of 3     0            0 of 3   3 of 3   0 of 3      [7, 7, 7]                        7.00
+rep a vs rep b: identical
+
+CONDITION: trained (rep a; n = number of tickets)
+class       n    resolved   wrong_fixes  vetoes   holds    fast_path   tool_calls                       mean
+twin        5    5 of 5     0            0 of 5   0 of 5   4 of 5      [6, 3, 3, 3, 3]                  3.60
+lookalike   3    3 of 3     0            3 of 3   3 of 3   0 of 3      [7, 7, 7]                        7.00
+rep a vs rep b: identical
+
+twin: mean tool calls: empty 7.00 -> trained 3.60
+lookalike: mean tool calls: empty 7.00 -> trained 7.00
+
+wrote docs/evidence/stage5_eval.json

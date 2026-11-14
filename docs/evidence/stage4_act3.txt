@@ -1,0 +1,47 @@
+=== uninterrupted baseline
+tool calls: 7 (steps executed now: 11, steps replayed from receipts: 0)
+=== ACT 3: same ticket, the process is SIGKILLed after receipt 5
+TICKET D-3  team=team-support  account=ACC-4108
+Meeting times differ between teammates in the shared calendar
+  [01] recall_memory         top-1 mem-TR-108 cosine 0.9324 evidence 0.26  (receipt 6b25933bbf)
+  [02] ** VETO ** mem-TR-108 blocked: cosine 0.9324, evidence 0.26 < 0.50 (fix F08 not applied)  (receipt b5023b10dd)
+  [03] get_account           found=True, plan=Team, region=us-east  (receipt bab093484d)
+  [04] check_service_status  region=us-east, incident=None  (receipt d232a6e99c)
+  [05] fetch_logs            line=calendar-render WARN tz rules version behind code=workspace_tz_rules_outdated, cause=workspace_tz_rules_outdated  (receipt 108f7a2b3e)
+     -- SIGKILL now (GOVMEM_KILL_AFTER=5) --
+./demo_stage4.sh: line 3: 34240 Killed: 9               .venv/bin/python -m govmem "$@"
+exit code 137 (137 = killed by SIGKILL)
+=== receipts that survived in Atlas
+[05] tool  fetch_logs           agent      a1a58429250b60f7 108f7a2b3e
+CHAIN OK: 5 receipts, chain verifies
+tool receipts: 4
+=== RESTART: a new process resumes from the receipts
+TICKET D-3  team=team-support  account=ACC-4108
+Meeting times differ between teammates in the shared calendar
+  resuming act3-180008: 5 receipts found, chain verifies
+  [01] recall_memory         top-1 mem-TR-108 cosine 0.9324 evidence 0.26  (replayed from receipt, not re-run)
+  [02] ** VETO ** mem-TR-108 blocked: cosine 0.9324, evidence 0.26 < 0.50 (fix F08 not applied)  (replayed from receipt, not re-run)
+  [03] get_account           found=True, plan=Team, region=us-east  (replayed from receipt, not re-run)
+  [04] check_service_status  region=us-east, incident=None  (replayed from receipt, not re-run)
+  [05] fetch_logs            line=calendar-render WARN tz rules version behind code=workspace_tz_rules_outdated, cause=workspace_tz_rules_outdated  (replayed from receipt, not re-run)
+  [06] lookup_catalog        fix_id=F11, title=Refresh the workspace time zone rules  (receipt 3814edb46d)
+  [07] apply_fix             applied=True, fix_id=F11  (receipt d8fa6d6645)
+  [08] verify_fix            resolved=True  (receipt aee6964a94)
+  [09] ** CANDIDATE ** lifecycle=candidate, review=rev-mem-D-3  (receipt 2ba5d14569)
+  [10] ** HOLD ** waiting_for=human, reason=confidence below hold line  (receipt 0b7aa8f24d)
+  [11] ** FINAL ** status=held, path=catalog, fix_id=F11, confidence=0.5, memory=None, wrong_fixes=[], vetoed=mem-TR-108, candidate=mem-D-3  (receipt 62f9168420)
+  status: HELD   path: catalog   tool calls: 7   confidence: 0.50
+  vetoed: mem-TR-108 (similar, but its evidence is below 0.50; it was not applied)
+  fix: Refresh the workspace time zone rules
+    1. Open Admin > Calendar > Time zone data and check the rules version.
+    2. Apply the current time zone rules to the workspace.
+    3. Re-render the affected recurring events and compare two users' views.
+  provenance: fix catalog entry F11; not yet team memory
+  learned: CANDIDATE mem-D-3 is waiting in the review queue. It is not recalled until a human promotes it.
+  HOLD: confidence 0.50 is below 0.70. The ticket stays open until a human decides (govmem review list).
+  audit: 11 receipts, chain verifies (act3-180008)
+tool calls: 7 (steps executed now: 6, steps replayed from receipts: 5)
+=== same steps as the uninterrupted run?
+CHAIN OK: 11 receipts, chain verifies
+tool receipts: 7
+SAME SEQUENCE: 11 steps

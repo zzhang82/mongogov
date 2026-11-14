@@ -1,0 +1,105 @@
+2026-11-14T17:58:59Z
+=== ACT 2b: lookalike ticket D-3 (same symptoms as TR-108, different cause)
+TICKET D-3  team=team-support  account=ACC-4108
+Meeting times differ between teammates in the shared calendar
+  [01] recall_memory         top-1 mem-TR-108 cosine 0.9324 evidence 0.26  (receipt 3485ed1747)
+  [02] ** VETO ** mem-TR-108 blocked: cosine 0.9324, evidence 0.26 < 0.50 (fix F08 not applied)  (receipt 2474729987)
+  [03] get_account           found=True, plan=Team, region=us-east  (receipt 26615a39d8)
+  [04] check_service_status  region=us-east, incident=None  (receipt 4da19bca5e)
+  [05] fetch_logs            line=calendar-render WARN tz rules version behind code=workspace_tz_rules_outdated, cause=workspace_tz_rules_outdated  (receipt d3fbe40270)
+  [06] lookup_catalog        fix_id=F11, title=Refresh the workspace time zone rules  (receipt 167b2f7163)
+  [07] apply_fix             applied=True, fix_id=F11  (receipt 484a8eddc9)
+  [08] verify_fix            resolved=True  (receipt 7bfed1ed27)
+  [09] ** CANDIDATE ** lifecycle=candidate, review=rev-mem-D-3  (receipt fe3247a80b)
+  [10] ** HOLD ** waiting_for=human, reason=confidence below hold line  (receipt c9d4843713)
+  [11] ** FINAL ** status=held, path=catalog, fix_id=F11, confidence=0.5, memory=None, wrong_fixes=[], vetoed=mem-TR-108, candidate=mem-D-3  (receipt e6378a8daa)
+  status: HELD   path: catalog   tool calls: 7   confidence: 0.50
+  vetoed: mem-TR-108 (similar, but its evidence is below 0.50; it was not applied)
+  fix: Refresh the workspace time zone rules
+    1. Open Admin > Calendar > Time zone data and check the rules version.
+    2. Apply the current time zone rules to the workspace.
+    3. Re-render the affected recurring events and compare two users' views.
+  provenance: fix catalog entry F11; not yet team memory
+  learned: CANDIDATE mem-D-3 is waiting in the review queue. It is not recalled until a human promotes it.
+  HOLD: confidence 0.50 is below 0.70. The ticket stays open until a human decides (govmem review list).
+  audit: 11 receipts, chain verifies (s3-act2b-175859)
+tool calls: 7 (steps executed now: 11, steps replayed from receipts: 0)
+=== AUDIT: the veto is a receipt
+[01] tool  recall_memory        agent      633cd413679c0428 3485ed1747
+[02] event veto                 agent      b6afb195f7ea886e 2474729987
+[03] tool  get_account          agent      92212ded9facf102 26615a39d8
+[04] tool  check_service_status agent      1b3b4e727daa3dbf 4da19bca5e
+[05] tool  fetch_logs           agent      a1a58429250b60f7 d3fbe40270
+[06] tool  lookup_catalog       agent      8ca7ce3c1e5f318d 167b2f7163
+[07] tool  apply_fix            agent      97990863fc9f604c 484a8eddc9
+[08] tool  verify_fix           agent      901112a7215f87a5 7bfed1ed27
+[09] event candidate            agent      43c42f51fe94c945 fe3247a80b
+[10] event hold                 agent      752bf02ebc3b4c14 c9d4843713
+[11] event final                agent      585b2fc8893d77ed e6378a8daa
+CHAIN OK: 11 receipts, chain verifies
+tool receipts: 7
+=== ISOLATION: the Act 2a ticket text under team-billing
+TICKET D-2-as-billing  team=team-billing  account=ACC-4115
+Fresh share links say expired straight away
+  [01] recall_memory         top-1 mem-TR-201 cosine 0.3253 evidence 0.85  (receipt 61c7eda760)
+  [02] get_account           found=True, plan=Team, region=eu-west  (receipt c4b1381ecc)
+  [03] check_service_status  region=eu-west, incident=None  (receipt 03370347be)
+  [04] fetch_logs            line=share-links WARN policy expiry_days=0 code=link_expiry_policy_zero, cause=link_expiry_policy_zero  (receipt 2cfc5a500f)
+  [05] lookup_catalog        fix_id=F14, title=Restore the share link expiry policy  (receipt 234f136500)
+  [06] apply_fix             applied=True, fix_id=F14  (receipt a27b290520)
+  [07] verify_fix            resolved=True  (receipt e79eace60d)
+  [08] ** CANDIDATE ** lifecycle=candidate, review=rev-mem-D-2-as-billing  (receipt 7f58dca25a)
+  [09] ** HOLD ** waiting_for=human, reason=confidence below hold line  (receipt f2dd0808fc)
+  [10] ** FINAL ** status=held, path=catalog, fix_id=F14, confidence=0.5, memory=None, wrong_fixes=[], vetoed=None, candidate=mem-D-2-as-billing  (receipt 74a25e131d)
+  status: HELD   path: catalog   tool calls: 7   confidence: 0.50
+  fix: Restore the share link expiry policy
+    1. Open Admin > Sharing > Link policy and read the expiry value.
+    2. Set the expiry from 0 back to the default 30 days.
+    3. Ask the customer to create a new link and open it as a guest.
+  provenance: fix catalog entry F14; not yet team memory
+  learned: CANDIDATE mem-D-2-as-billing is waiting in the review queue. It is not recalled until a human promotes it.
+  HOLD: confidence 0.50 is below 0.70. The ticket stays open until a human decides (govmem review list).
+  audit: 10 receipts, chain verifies (s3-isolation-175859)
+tool calls: 7 (steps executed now: 10, steps replayed from receipts: 0)
+=== G5 REVISE: propose a corrected version of mem-TR-201 (team-billing)
+id             namespace     lifecycle   evidence actor      approved_by  fix_id  supersedes     superseded_by
+mem-D-2-as-billing team-billing  candidate   0.40     agent      -            F14     -              -
+mem-TR-201     team-billing  active      0.85     lin.wu     omar.haddad  F15     -              -
+mem-TR-202     team-billing  active      0.85     lin.wu     omar.haddad  F16     -              -
+candidate: mem-TR-201-v2  review: rev-mem-TR-201-v2
+the old version stays active until a human promotes the successor
+--- before promotion: the old version is still the one active version
+id             namespace     lifecycle   evidence actor      approved_by  fix_id  supersedes     superseded_by
+mem-D-2-as-billing team-billing  candidate   0.40     agent      -            F14     -              -
+mem-TR-201     team-billing  active      0.85     lin.wu     omar.haddad  F15     -              -
+mem-TR-201-v2  team-billing  candidate   0.40     lin.wu     -            F15     mem-TR-201     -
+mem-TR-202     team-billing  active      0.85     lin.wu     omar.haddad  F16     -              -
+--- the proposer cannot approve the revision
+REFUSED: lin.wu requested this review and cannot also approve it
+exit code 2
+memory: mem-TR-201-v2  lifecycle: active  evidence: 0.85  approved_by: omar.haddad
+vector index in sync after 0.6s
+id             namespace     lifecycle   evidence actor      approved_by  fix_id  supersedes     superseded_by
+mem-D-2-as-billing team-billing  candidate   0.40     agent      -            F14     -              -
+mem-TR-201     team-billing  superseded  0.85     lin.wu     omar.haddad  F15     -              mem-TR-201-v2
+mem-TR-201-v2  team-billing  active      0.85     lin.wu     omar.haddad  F15     mem-TR-201     -
+mem-TR-202     team-billing  active      0.85     lin.wu     omar.haddad  F16     -              -
+=== G5 FORGET: retire mem-TR-202
+retired mem-TR-202
+id             namespace     lifecycle   evidence actor      approved_by  fix_id  supersedes     superseded_by
+mem-D-2-as-billing team-billing  candidate   0.40     agent      -            F14     -              -
+mem-TR-201     team-billing  superseded  0.85     lin.wu     omar.haddad  F15     -              mem-TR-201-v2
+mem-TR-201-v2  team-billing  active      0.85     lin.wu     omar.haddad  F15     mem-TR-201     -
+mem-TR-202     team-billing  retired     0.85     lin.wu     omar.haddad  F16     -              -
+--- a retired memory cannot come back
+REFUSED: illegal lifecycle move: retired -> retired
+exit code 2
+=== governance receipts
+[37] event promote              sarah.chen 75f2932239a4d588 1aa166545d
+[38] event propose              agent      98494fac347b084c 2602c00735
+[39] event propose              agent      16e81f3c33355a25 edb29dec56
+[40] event propose              lin.wu     0ca708fba37b061a 5a3b214620
+[41] event promote              omar.haddad 6c7970c686c51ef1 9426376b37
+[42] event forget               omar.haddad 894549d5c209ad99 232c626bf5
+CHAIN OK: 42 receipts, chain verifies
+tool receipts: 0

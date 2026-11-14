@@ -1,0 +1,62 @@
+{
+ "ACC-1101": {
+  "plan": "Team",
+  "region": "eu-west",
+  "log": "sync-agent WARN manifest mismatch on local cache code=sync_stale_cache"
+ },
+ "ACC-3101": {
+  "plan": "Team",
+  "region": "eu-west",
+  "log": "sync-agent WARN manifest mismatch on local cache code=sync_stale_cache"
+ },
+ "ACC-3102": {
+  "plan": "Business",
+  "region": "eu-west",
+  "log": "auth-gateway ERROR SAML assertion not yet valid code=sso_clock_skew"
+ },
+ "ACC-3103": {
+  "plan": "Business",
+  "region": "us-east",
+  "log": "webhook-sender ERROR signature rejected by endpoint code=webhook_secret_rotated"
+ },
+ "ACC-3105": {
+  "plan": "Team",
+  "region": "us-east",
+  "log": "push-service WARN apns token unregistered code=push_token_stale"
+ },
+ "ACC-3107": {
+  "plan": "Business",
+  "region": "us-east",
+  "log": "api-gateway WARN key bound to legacy limits code=api_key_old_rate_tier"
+ },
+ "ACC-3108": {
+  "plan": "Business",
+  "region": "eu-west",
+  "log": "calendar-render WARN tz rules version behind code=workspace_tz_rules_outdated"
+ },
+ "ACC-3109": {
+  "plan": "Team",
+  "region": "eu-west",
+  "log": "doc-pipeline WARN text extraction queue paused code=ocr_queue_paused"
+ },
+ "ACC-3110": {
+  "plan": "Team",
+  "region": "us-east",
+  "log": "auth-node-7 WARN clock offset 41s code=auth_node_clock_drift"
+ },
+ "ACC-4114": {
+  "plan": "Business",
+  "region": "us-east",
+  "log": "share-links WARN policy expiry_days=0 code=link_expiry_policy_zero"
+ },
+ "ACC-4115": {
+  "plan": "Team",
+  "region": "eu-west",
+  "log": "share-links WARN policy expiry_days=0 code=link_expiry_policy_zero"
+ },
+ "ACC-4108": {
+  "plan": "Team",
+  "region": "us-east",
+  "log": "calendar-render WARN tz rules version behind code=workspace_tz_rules_outdated"
+ }
+}
