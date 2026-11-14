@@ -54,6 +54,7 @@ Lines for the voice-over:
 
 - Beat 1: "Sarah leaves Friday. Her fixes usually leave with her."
 - Beat 2: "Nothing becomes team memory without a name on it."
+- Beat 3: "Monday. Sarah is gone. Her fix is not."
 - Beat 4: "Similarity is relevance. Evidence is trust."
 - Beat 6: "The ticket survives the crash. Nothing runs twice."
 
@@ -89,6 +90,9 @@ EOF
 First line is the subject, the rest is the body. `--team` defaults to `team-support`. The account selects the
 simulated environment the tools read. Accounts with a fault: ACC-3101, 3102, 3103, 3105, 3107, 3108, 3109,
 3110, 4108, 4114, 4115. A ticket with no known account cannot be diagnosed and is escalated to a human.
+
+A pasted ticket gets its own similarity figure. This example vetoed `mem-TR-109` at 0.8885 when tested, not the 0.9324
+of the scripted D-3 run. The veto is the point, not the decimal.
 
 Other commands: `G review list`, `G memories --all`, `G audit <run id>`, `G revise`, `G forget`.
 
@@ -144,5 +148,5 @@ Never say:
 ## 9. Submission state
 
 - Public repo: https://github.com/zzhang82/mongogov (branch `main`).
-- Still to land at the time of writing: the full README, the build log for Stages 2 to 5, and the committee review of Stages 2 to 4.
+- The README and the build log for Stages 0 to 5 are in the repo.
 - Deadline 17:00 through Cerebral Valley: public repo, accessible demo, 1-minute video. Stop building at 16:30.

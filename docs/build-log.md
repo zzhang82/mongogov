@@ -36,3 +36,63 @@ PR-101 was not reworded. The demo repeat is picked from measured fast-path ticke
 | G4 approval hold | `policy.confidence` + hold event (Stage 2) | Stage 2 run output and receipts |
 | G5 revise / forget | `memory.revise`, `memory.forget`, promote supersedes in one transaction | Stage 3 live run |
 | G6 audit / resume | `receipts.append`, `receipts.verify_chain` (recomputed) | `test_chain_verifies_and_tamper_fails`; Stage 4 live kill |
+
+## Stage 2 — live lifecycle, hold, promote, fast path
+
+- What was run: `./demo_stage2.sh` (Act 1 with novel ticket D-1 run twice, review queue check, agent self-approval attempt, promotion by human, Act 2a with repeat ticket D-2, handoff to a new process and run, audit comparison).
+- Seed: `seeded 12 training tickets; memories by lifecycle: {'candidate': 0, 'active': 12, 'superseded': 0, 'retired': 0}`.
+- Act 1 (novel ticket D-1): `status: HELD   path: catalog   tool calls: 7   confidence: 0.50`. Learned fix proposed: `learned: CANDIDATE mem-D-1 is waiting in the review queue. It is not recalled until a human promotes it.`.
+- Agent self-approval rejected: `REFUSED: agent requested this review and cannot also approve it` (exit code 2).
+- Human promotion: `memory: mem-D-1  lifecycle: active  evidence: 0.85  approved_by: sarah.chen`, `vector index in sync after 1.0s`.
+- Act 2a (repeat ticket D-2): `top-1 mem-D-1 cosine 0.8755 evidence 0.85`, `status: RESOLVED   path: fast   tool calls: 3   confidence: 0.85`.
+- Handoff in new process: `status: RESOLVED   path: fast   tool calls: 3   confidence: 0.85`.
+- Determinism: `SAME SEQUENCE: 10 steps` (Act 1 repeated), `SAME SEQUENCE: 4 steps` (Act 2a vs handoff).
+- Chain verification: `CHAIN OK: 10 receipts, chain verifies` (Act 1), `CHAIN OK: 4 receipts, chain verifies` (Act 2a).
+- Evidence: `docs/evidence/stage2.txt`.
+
+## Stage 3 — evidence veto, namespace isolation, revise, forget
+
+- What was run: `./demo_stage3.sh` (Act 2b with lookalike ticket D-3, audit receipt of veto, isolation check of ticket D-2 under `team-billing`, G5 revise `mem-TR-201`, proposer self-approval rejected, promotion by omar.haddad superseding v1, G5 forget `mem-TR-202`, double-retire rejected, governance receipts audit).
+- Act 2b (lookalike ticket D-3): `top-1 mem-TR-108 cosine 0.9324 evidence 0.26`, `** VETO ** mem-TR-108 blocked: cosine 0.9324, evidence 0.26 < 0.50 (fix F08 not applied)`.
+- Act 2b resolution: takes catalog path, `status: HELD   path: catalog   tool calls: 7   confidence: 0.50`, `audit: 11 receipts, chain verifies (s3-act2b-175859)`.
+- Isolation check: Act 2a ticket text run under `team-billing` recalls `top-1 mem-TR-201 cosine 0.3253 evidence 0.85`, falls through to catalog path with 7 tool calls, `status: HELD   path: catalog   tool calls: 7   confidence: 0.50`.
+- G5 Revise: proposed `mem-TR-201-v2` as candidate (`candidate: mem-TR-201-v2  review: rev-mem-TR-201-v2`); old version stays active until promotion.
+- Proposer self-approval rejected: `REFUSED: lin.wu requested this review and cannot also approve it` (exit code 2).
+- Promotion by omar.haddad: `memory: mem-TR-201-v2  lifecycle: active  evidence: 0.85  approved_by: omar.haddad`, `vector index in sync after 0.6s`; parent `mem-TR-201` marked `superseded` with `superseded_by: mem-TR-201-v2` in the same transaction.
+- G5 Forget: `retired mem-TR-202` with reason "Tax details moved to the billing portal; fix no longer applies". Double-retire rejected: `REFUSED: illegal lifecycle move: retired -> retired` (exit code 2).
+- Governance chain audit: `CHAIN OK: 42 receipts, chain verifies`, `tool receipts: 0`.
+- Evidence: `docs/evidence/stage3.txt`.
+
+## Stage 4 — kill, resume, audit, and tamper tests
+
+- What was run: `./demo_stage4.sh` (Act 3 live SIGKILL of agent process mid-ticket after receipt 5, restart and resume from Atlas receipts), `python -m govmem.killtest` (10-point kill matrix, external kill test, 4 tamper tests).
+- Act 3 live SIGKILL: `GOVMEM_KILL_AFTER=5 G ingest --seed-ticket D-3 --run-id act3-180008`, `exit code 137 (137 = killed by SIGKILL)`.
+- Surviving receipts in Atlas: `CHAIN OK: 5 receipts, chain verifies`, `tool receipts: 4`.
+- Restart and resume: `resuming act3-180008: 5 receipts found, chain verifies`. Steps 1–5 replayed from receipts, steps 6–11 executed: `tool calls: 7 (steps executed now: 6, steps replayed from receipts: 5)`.
+- Determinism against uninterrupted baseline: `SAME SEQUENCE: 11 steps`, `CHAIN OK: 11 receipts, chain verifies`, `tool receipts: 7`.
+- Bug found by running demo_stage4.sh: `resume` looked up the ticket by a field written only when a run finishes, so a killed run was not found. Fixed: resume reads the ticket id from the run's first receipt.
+- Kill matrix: `BASELINE: 11 receipts, 7 tool calls`, `KILL MATRIX: 10 of 10 kill points passed` (k=1 to 10: chain ok, sequence same, result PASS).
+- External kill: `EXTERNAL KILL: PASS (killed at 3 receipts)`.
+- Tamper detection: `TAMPER: 4 of 4 detected as expected`:
+  - `alter seq 2 result: caught (seq 2: stored hash does not match its content)`
+  - `remove middle receipt: caught (sequence gap: expected 6, found 7)`
+  - `swap two receipts: caught (sequence gap: expected 2, found 3)`
+  - `drop tail stays verifiable: caught (tail open (full baseline complete))`
+- Evidence: `docs/evidence/stage4_act3.txt`, `docs/evidence/stage4_killtest.txt`.
+
+## Stage 5 — held-out evaluation
+
+- What was run: `python -m govmem.evalrun` over 8 held-out tickets (5 twins HT-1 to HT-5, 3 lookalikes HL-1 to HL-3) across two conditions (empty memory vs trained memory) with 2 repetitions each (rep a, rep b). The held-out tickets were first used in this run, after `seed --reset`.
+- Index sync: `index sync: 1.15s, active memories: {'team-support': 10, 'team-billing': 2}`.
+- Empty condition (rep a):
+  - `twin`: n=5, resolved 5 of 5, wrong_fixes 0, vetoes 0 of 5, holds 5 of 5, fast_path 0 of 5, tool_calls [7, 7, 7, 7, 7], mean 7.00.
+  - `lookalike`: n=3, resolved 3 of 3, wrong_fixes 0, vetoes 0 of 3, holds 3 of 3, fast_path 0 of 3, tool_calls [7, 7, 7], mean 7.00.
+  - `rep a vs rep b: identical`.
+- Trained condition (rep a):
+  - `twin`: n=5, resolved 5 of 5, wrong_fixes 0, vetoes 0 of 5, holds 0 of 5, fast_path 4 of 5, tool_calls [6, 3, 3, 3, 3], mean 3.60.
+  - `lookalike`: n=3, resolved 3 of 3, wrong_fixes 0, vetoes 3 of 3, holds 3 of 3, fast_path 0 of 3, tool_calls [7, 7, 7], mean 7.00.
+  - `rep a vs rep b: identical`.
+- Summary lines:
+  - `twin: mean tool calls: empty 7.00 -> trained 3.60`.
+  - `lookalike: mean tool calls: empty 7.00 -> trained 7.00`.
+- Evidence: `docs/evidence/stage5_eval.txt`.
